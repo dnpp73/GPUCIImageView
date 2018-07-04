@@ -25,7 +25,7 @@ public final class GLCIImageView: UIView, CIImageShowable {
         super.init(frame: frame)
         commonInit()
     }
-
+    
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -62,5 +62,5 @@ public final class GLCIImageView: UIView, CIImageShowable {
             glkView.setNeedsDisplay()
         }
     }
-        
+    
 }

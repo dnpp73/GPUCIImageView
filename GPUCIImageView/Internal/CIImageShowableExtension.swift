@@ -44,6 +44,7 @@ internal extension CIImageShowable where Self: UIView {
             return nil
         }
         glContext.isMultiThreaded = true
+        
         let ciContext = CIContext(eaglContext: glContext, options: [kCIContextUseSoftwareRenderer : false])
         let glkView = GLKView(frame: bounds, context: glContext)
         let glkViewDelegate = GLCIImageViewDelegate()

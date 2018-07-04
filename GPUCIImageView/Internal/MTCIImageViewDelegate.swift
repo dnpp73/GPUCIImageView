@@ -56,7 +56,7 @@ internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
                 let scaleX = drawableSize.width / image.extent.width
                 let scaleY = drawableSize.height / image.extent.height
                 let transform = CGAffineTransform.identity.scaledBy(x: scaleX, y: scaleY).translatedBy(x: originX, y: originY)
-                let scaledImage = image.applying(transform)
+                let scaledImage = image.transformed(by: transform)
                 ciContext.render(scaledImage, to: currentDrawable.texture, commandBuffer: commandBuffer, bounds: rect, colorSpace: colorSpace)
                 
                 commandBuffer.present(currentDrawable)
