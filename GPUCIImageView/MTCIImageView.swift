@@ -4,7 +4,7 @@ import MetalKit
 
 @available(iOS 9, *)
 public final class MTCIImageView: UIView, CIImageShowable {
-    
+
     public var image: CIImage? {
         didSet {
             if Thread.isMainThread {
@@ -16,22 +16,22 @@ public final class MTCIImageView: UIView, CIImageShowable {
             }
         }
     }
-    
+
     public private(set) var ciContext: CIContext?
-    
+
     private var mtkView: MTKView?
     private var mtkViewDelegate: MTCIImageViewDelegate?
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     private func commonInit() {
         guard let m = prepareMetal() else {
             return
@@ -41,20 +41,20 @@ public final class MTCIImageView: UIView, CIImageShowable {
         mtkView = m.mtkView
         mtkViewDelegate = m.mtkViewDelegate
     }
-    
+
     public override var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }
     }
-    
+
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         if let _ = window {
             setNeedsLayout()
         }
     }
-    
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let mtkView = mtkView {
@@ -63,5 +63,5 @@ public final class MTCIImageView: UIView, CIImageShowable {
             mtkView.setNeedsDisplay()
         }
     }
-    
+
 }

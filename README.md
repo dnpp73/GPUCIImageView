@@ -52,7 +52,7 @@ See [`CIImageShowable`](/GPUCIImageView/CIImageShowable.swift) protocol
 
 You can use `GLCIImageView`(based on `GLKView`) or `MTCIImageView`(based on `MTKView`).
 
-`GPUCIImageView` is based on `MTKView`(if Metal support Device) or `GLKView`(fallback). 
+`GPUCIImageView` is based on `MTKView`(if Metal support Device) or `GLKView`(fallback).
 
 
 ## License

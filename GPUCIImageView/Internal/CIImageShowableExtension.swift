@@ -3,7 +3,7 @@ import GLKit
 import MetalKit
 
 internal extension CIImageShowable where Self: UIView {
-    
+
     internal var imageViewSize: CGSize {
         guard let imageSize = image?.extent.size else {
             return bounds.size
@@ -32,7 +32,7 @@ internal extension CIImageShowable where Self: UIView {
             return originalSize
         }
     }
-    
+
     internal func prepareOpenGL() -> (ciContext: CIContext, glkView: GLKView, glkViewDelegate: GLCIImageViewDelegate)? {
         let glContext: EAGLContext
         if let glContext3 = EAGLContext(api: .openGLES3) {
@@ -44,7 +44,7 @@ internal extension CIImageShowable where Self: UIView {
             return nil
         }
         glContext.isMultiThreaded = true
-        
+
         let ciContext = CIContext(eaglContext: glContext, options: [.useSoftwareRenderer : false])
         let glkView = GLKView(frame: bounds, context: glContext)
         let glkViewDelegate = GLCIImageViewDelegate()
@@ -54,7 +54,7 @@ internal extension CIImageShowable where Self: UIView {
         glkView.isUserInteractionEnabled = false
         return (ciContext: ciContext, glkView: glkView, glkViewDelegate: glkViewDelegate)
     }
-    
+
     @available(iOS 9, *)
     internal func prepareMetal() -> (ciContext: CIContext, mtkView: MTKView, mtkViewDelegate: MTCIImageViewDelegate)? {
         guard let device = MTLCreateSystemDefaultDevice() else {
@@ -74,5 +74,5 @@ internal extension CIImageShowable where Self: UIView {
         mtkView.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
         return (ciContext: ciContext, mtkView: mtkView, mtkViewDelegate: mtkViewDelegate)
     }
-    
+
 }

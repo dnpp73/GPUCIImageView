@@ -14,7 +14,7 @@ import GLKit
 
 // MTKView に雑な感じで CIImage を放り込んで contentMode もそれっぽくするには
 // 自前で transform 計算しないとダメっぽそう
-// Advanced Image Processing with Core Image 
+// Advanced Image Processing with Core Image
 // Simon Gladman on Jun 9 2016
 // https://realm.io/news/tryswift-gladman-simon-advanced-core-image/
 
@@ -23,7 +23,7 @@ import GLKit
 // https://developer.apple.com/videos/play/wwdc2015/510/
 
 public final class GPUCIImageView: UIView, CIImageShowable {
-    
+
     public var image: CIImage? {
         didSet {
             if Thread.isMainThread {
@@ -35,22 +35,22 @@ public final class GPUCIImageView: UIView, CIImageShowable {
             }
         }
     }
-    
+
     public private(set) var ciContext: CIContext?
-    
+
     private var gpuView: UIView?
     private var gpuViewDelegate: NSObject?
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     private func commonInit() {
         if isMetalAvailable {
             guard #available(iOS 9.0, *) else {
@@ -73,20 +73,20 @@ public final class GPUCIImageView: UIView, CIImageShowable {
             gpuViewDelegate = g.glkViewDelegate
         }
     }
-    
+
     public override var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }
     }
-    
+
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         if let _ = window {
             setNeedsLayout()
         }
     }
-    
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = gpuView {
@@ -95,5 +95,5 @@ public final class GPUCIImageView: UIView, CIImageShowable {
             imageView.setNeedsDisplay()
         }
     }
-    
+
 }

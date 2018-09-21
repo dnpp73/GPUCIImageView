@@ -2,9 +2,9 @@ import Foundation
 import GLKit
 
 internal final class GLCIImageViewDelegate: NSObject, GLKViewDelegate {
-    
+
     internal weak var parent: CIImageShowable?
-    
+
     internal func glkView(_ view: GLKView, drawIn rect: CGRect) {
         if let image = parent?.image, let scale = view.window?.screen.nativeScale {
             view.isHidden = false
@@ -14,5 +14,5 @@ internal final class GLCIImageViewDelegate: NSObject, GLKViewDelegate {
             view.isHidden = true
         }
     }
-    
+
 }

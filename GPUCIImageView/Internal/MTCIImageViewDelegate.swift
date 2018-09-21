@@ -3,18 +3,18 @@ import MetalKit
 
 @available(iOS 9, *)
 internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
-    
+
     internal weak var parent: CIImageShowable?
     internal var commandQueue: MTLCommandQueue?
-    
+
     private var drawableSize = CGSize.zero
-    
+
     private let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
-    
+
     internal func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         drawableSize = size
     }
-    
+
     internal func draw(in view: MTKView) {
         #if !(arch(i386) || arch(x86_64))
             // シミュレータだと動かない。
@@ -41,11 +41,11 @@ internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
                     view.isHidden = true
                     return
                 }
-                
+
                 view.isHidden = false
-                
+
                 let colorSpace: CGColorSpace = image.colorSpace ?? self.colorSpace
-                
+
                 // drawableSizeWillChange で、きちんと拾えば同じ値になる。
                 // let rect = view.bounds.applying(CGAffineTransform(scaleX: scale, y: scale)) // ここの scale は nativeScale じゃなくて良いっぽい。
                 // let rect = CGRect(origin: .zero, size: drawableSize)
@@ -58,7 +58,7 @@ internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
                 let transform = CGAffineTransform.identity.scaledBy(x: scaleX, y: scaleY).translatedBy(x: originX, y: originY)
                 let scaledImage = image.transformed(by: transform)
                 ciContext.render(scaledImage, to: currentDrawable.texture, commandBuffer: commandBuffer, bounds: rect, colorSpace: colorSpace)
-                
+
                 commandBuffer.present(currentDrawable)
                 commandBuffer.commit()
                 commandBuffer.waitUntilCompleted()
@@ -67,5 +67,5 @@ internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
             }
         #endif
     }
-    
+
 }
