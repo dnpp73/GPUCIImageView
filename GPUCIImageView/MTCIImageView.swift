@@ -42,7 +42,7 @@ public final class MTCIImageView: UIView, CIImageShowable {
         mtkViewDelegate = m.mtkViewDelegate
     }
     
-    public override var contentMode: UIViewContentMode {
+    public override var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }

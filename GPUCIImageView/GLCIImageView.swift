@@ -41,7 +41,7 @@ public final class GLCIImageView: UIView, CIImageShowable {
         glkViewDelegate = g.glkViewDelegate
     }
     
-    public override var contentMode: UIViewContentMode {
+    public override var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }
