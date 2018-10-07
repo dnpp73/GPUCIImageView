@@ -28,7 +28,7 @@ public final class GPUCIImageView: UIView, CIImageShowable {
         didSet {
             if Thread.isMainThread {
                 setNeedsLayout()
-            }  else {
+            } else {
                 DispatchQueue.main.sync {
                     setNeedsLayout()
                 }

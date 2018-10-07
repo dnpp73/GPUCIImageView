@@ -8,7 +8,7 @@ public final class GLCIImageView: UIView, CIImageShowable {
         didSet {
             if Thread.isMainThread {
                 setNeedsLayout()
-            }  else {
+            } else {
                 DispatchQueue.main.sync {
                     setNeedsLayout()
                 }
