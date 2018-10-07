@@ -20,7 +20,7 @@ public final class MTCIImageView: UIView, CIImageShowable {
     public private(set) var ciContext: CIContext?
 
     private var mtkView: MTKView?
-    private var mtkViewDelegate: MTCIImageViewDelegate?
+    private var mtkViewDelegate: MTCIImageViewDelegate? // swiftlint:disable:this weak_delegate
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

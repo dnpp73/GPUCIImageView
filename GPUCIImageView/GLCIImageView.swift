@@ -19,7 +19,7 @@ public final class GLCIImageView: UIView, CIImageShowable {
     public private(set) var ciContext: CIContext?
 
     private var glkView: GLKView?
-    private var glkViewDelegate: GLCIImageViewDelegate?
+    private var glkViewDelegate: GLCIImageViewDelegate? // swiftlint:disable:this weak_delegate
 
     override init(frame: CGRect) {
         super.init(frame: frame)

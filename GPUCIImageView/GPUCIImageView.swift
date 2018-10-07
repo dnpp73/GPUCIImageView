@@ -39,7 +39,7 @@ public final class GPUCIImageView: UIView, CIImageShowable {
     public private(set) var ciContext: CIContext?
 
     private var gpuView: UIView?
-    private var gpuViewDelegate: NSObject?
+    private var gpuViewDelegate: NSObject? // swiftlint:disable:this weak_delegate
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
