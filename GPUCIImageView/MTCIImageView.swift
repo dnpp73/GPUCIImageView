@@ -7,12 +7,8 @@ public final class MTCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            if Thread.isMainThread {
+            onMainThread {
                 setNeedsLayout()
-            } else {
-                DispatchQueue.main.sync {
-                    setNeedsLayout()
-                }
             }
         }
     }

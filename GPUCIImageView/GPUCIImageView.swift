@@ -26,20 +26,15 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            if let imageView = gpuView as? UIImageView {
-                if let image = image {
-                    imageView.image = UIImage(ciImage: image)
-                } else {
-                    imageView.image = nil
-                }
-            } else {
-                if Thread.isMainThread {
-                    setNeedsLayout()
-                } else {
-                    DispatchQueue.main.sync {
-                        setNeedsLayout()
+            onMainThread {
+                if let imageView = gpuView as? UIImageView {
+                    if let image = image {
+                        imageView.image = UIImage(ciImage: image)
+                    } else {
+                        imageView.image = nil
                     }
                 }
+                setNeedsLayout()
             }
         }
     }

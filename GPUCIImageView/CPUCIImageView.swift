@@ -5,10 +5,13 @@ public final class CPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            if let image = image {
-                imageView?.image = UIImage(ciImage: image)
-            } else {
-                imageView?.image = nil
+            onMainThread {
+                if let image = image {
+                    imageView?.image = UIImage(ciImage: image)
+                } else {
+                    imageView?.image = nil
+                }
+                setNeedsLayout()
             }
         }
     }
