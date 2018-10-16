@@ -75,4 +75,12 @@ internal extension CIImageShowable where Self: UIView {
         return (ciContext: ciContext, mtkView: mtkView, mtkViewDelegate: mtkViewDelegate)
     }
 
+    internal func prepareCPU() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .clear
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = false
+        return imageView
+    }
+
 }

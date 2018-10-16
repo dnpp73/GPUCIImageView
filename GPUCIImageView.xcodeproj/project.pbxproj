@@ -16,6 +16,7 @@
 		194C9EBC1EA7B5BA007603B8 /* MetalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB41EA7B5BA007603B8 /* MetalUtil.swift */; };
 		194C9EBD1EA7B5BA007603B8 /* MTCIImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB51EA7B5BA007603B8 /* MTCIImageViewDelegate.swift */; };
 		194C9EBE1EA7B5BA007603B8 /* MTCIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB61EA7B5BA007603B8 /* MTCIImageView.swift */; };
+		EA1AAD782175C10D00757814 /* CPUCIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1AAD772175C10D00757814 /* CPUCIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		194C9EC71EA7C24C007603B8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		194C9EC81EA7C258007603B8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		194C9EC91EA7C258007603B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EA1AAD772175C10D00757814 /* CPUCIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				194C9EB11EA7B5BA007603B8 /* Internal */,
 				194C9EAE1EA7B5BA007603B8 /* CIImageShowable.swift */,
+				EA1AAD772175C10D00757814 /* CPUCIImageView.swift */,
 				194C9EAF1EA7B5BA007603B8 /* GLCIImageView.swift */,
 				194C9EB61EA7B5BA007603B8 /* MTCIImageView.swift */,
 				194C9EB01EA7B5BA007603B8 /* GPUCIImageView.swift */,
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				194C9EB71EA7B5BA007603B8 /* CIImageShowable.swift in Sources */,
+				EA1AAD782175C10D00757814 /* CPUCIImageView.swift in Sources */,
 				194C9EBE1EA7B5BA007603B8 /* MTCIImageView.swift in Sources */,
 				194C9EB81EA7B5BA007603B8 /* GLCIImageView.swift in Sources */,
 				194C9EBD1EA7B5BA007603B8 /* MTCIImageViewDelegate.swift in Sources */,

@@ -26,11 +26,19 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            if Thread.isMainThread {
-                setNeedsLayout()
+            if let imageView = gpuView as? UIImageView {
+                if let image = image {
+                    imageView.image = UIImage(ciImage: image)
+                } else {
+                    imageView.image = nil
+                }
             } else {
-                DispatchQueue.main.sync {
+                if Thread.isMainThread {
                     setNeedsLayout()
+                } else {
+                    DispatchQueue.main.sync {
+                        setNeedsLayout()
+                    }
                 }
             }
         }
@@ -52,6 +60,7 @@ public final class GPUCIImageView: UIView, CIImageShowable {
     }
 
     private func commonInit() {
+        #if !(arch(i386) || arch(x86_64))
         if isMetalAvailable {
             guard #available(iOS 9.0, *) else {
                 return
@@ -72,6 +81,12 @@ public final class GPUCIImageView: UIView, CIImageShowable {
             gpuView = g.glkView
             gpuViewDelegate = g.glkViewDelegate
         }
+        #else
+        let imageView = prepareCPU()
+        addSubview(imageView)
+        ciContext = nil
+        gpuView = imageView
+        #endif
     }
 
     public override var contentMode: UIView.ContentMode {
