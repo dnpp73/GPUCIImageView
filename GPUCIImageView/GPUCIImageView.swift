@@ -26,7 +26,7 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThread {
+            onMainThreadSync {
                 if let imageView = gpuView as? UIImageView {
                     if let image = image {
                         imageView.image = UIImage(ciImage: image)

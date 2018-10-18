@@ -5,7 +5,7 @@ public final class CPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThread {
+            onMainThreadSync {
                 if let image = image {
                     imageView?.image = UIImage(ciImage: image)
                 } else {

@@ -6,7 +6,7 @@ public final class GLCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThread {
+            onMainThreadSync {
                 setNeedsLayout()
             }
         }

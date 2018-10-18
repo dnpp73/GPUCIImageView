@@ -7,7 +7,7 @@ public final class MTCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThread {
+            onMainThreadSync {
                 setNeedsLayout()
             }
         }
