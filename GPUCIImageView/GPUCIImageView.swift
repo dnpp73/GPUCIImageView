@@ -29,9 +29,15 @@ public final class GPUCIImageView: UIView, CIImageShowable {
             onMainThreadAsync {
                 if let imageView = self.gpuView as? UIImageView {
                     if let image = self.image {
-                        imageView.image = UIImage(ciImage: image)
+                        DispatchQueue.global(qos: .userInteractive).async {
+                            let uiImage = UIImage(ciImage: image)
+                            DispatchQueue.main.async {
+                                imageView.image = uiImage
+                            }
+                        }
                     } else {
                         imageView.image = nil
+                        self.setNeedsLayout()
                     }
                 }
                 self.setNeedsLayout()
