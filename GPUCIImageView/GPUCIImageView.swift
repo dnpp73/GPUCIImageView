@@ -26,15 +26,15 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThreadSync {
-                if let imageView = gpuView as? UIImageView {
-                    if let image = image {
+            onMainThreadAsync {
+                if let imageView = self.gpuView as? UIImageView {
+                    if let image = self.image {
                         imageView.image = UIImage(ciImage: image)
                     } else {
                         imageView.image = nil
                     }
                 }
-                setNeedsLayout()
+                self.setNeedsLayout()
             }
         }
     }
@@ -82,6 +82,12 @@ public final class GPUCIImageView: UIView, CIImageShowable {
         ciContext = nil
         gpuView = imageView
         #endif
+    }
+
+    public override var isOpaque: Bool {
+        didSet {
+            gpuView?.isOpaque = isOpaque
+        }
     }
 
     public override var contentMode: UIView.ContentMode {

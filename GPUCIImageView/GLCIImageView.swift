@@ -6,8 +6,8 @@ public final class GLCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThreadSync {
-                setNeedsLayout()
+            onMainThreadAsync {
+                self.setNeedsLayout()
             }
         }
     }
@@ -35,6 +35,12 @@ public final class GLCIImageView: UIView, CIImageShowable {
         ciContext = g.ciContext
         glkView = g.glkView
         glkViewDelegate = g.glkViewDelegate
+    }
+
+    public override var isOpaque: Bool {
+        didSet {
+            glkView?.isOpaque = isOpaque
+        }
     }
 
     public override var contentMode: UIView.ContentMode {

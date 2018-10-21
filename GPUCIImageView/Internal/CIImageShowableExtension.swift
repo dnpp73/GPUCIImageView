@@ -52,6 +52,7 @@ internal extension CIImageShowable where Self: UIView {
         glkView.delegate = glkViewDelegate
         glkView.clipsToBounds = true
         glkView.isUserInteractionEnabled = false
+        glkView.isOpaque = isOpaque
         return (ciContext: ciContext, glkView: glkView, glkViewDelegate: glkViewDelegate)
     }
 
@@ -69,6 +70,7 @@ internal extension CIImageShowable where Self: UIView {
         mtkView.delegate = mtkViewDelegate
         mtkView.clipsToBounds = true
         mtkView.isUserInteractionEnabled = false
+        mtkView.isOpaque = isOpaque
         mtkView.framebufferOnly = false
         mtkView.enableSetNeedsDisplay = true // default false UIImageView 的な感じで雑に CIimage を放り込む用途ならこれを true にしないと mtkView.isPaused を頑張って弄らないと draw が呼ばれまくってパフォーマンス出なくなる
         mtkView.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -80,6 +82,7 @@ internal extension CIImageShowable where Self: UIView {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = false
+        imageView.isOpaque = isOpaque
         return imageView
     }
 

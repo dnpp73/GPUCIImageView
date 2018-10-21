@@ -7,8 +7,8 @@ public final class MTCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThreadSync {
-                setNeedsLayout()
+            onMainThreadAsync {
+                self.setNeedsLayout()
             }
         }
     }
@@ -36,6 +36,12 @@ public final class MTCIImageView: UIView, CIImageShowable {
         ciContext = m.ciContext
         mtkView = m.mtkView
         mtkViewDelegate = m.mtkViewDelegate
+    }
+
+    public override var isOpaque: Bool {
+        didSet {
+            mtkView?.isOpaque = isOpaque
+        }
     }
 
     public override var contentMode: UIView.ContentMode {

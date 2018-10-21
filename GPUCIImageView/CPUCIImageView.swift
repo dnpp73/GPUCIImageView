@@ -5,13 +5,13 @@ public final class CPUCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {
         didSet {
-            onMainThreadSync {
-                if let image = image {
-                    imageView?.image = UIImage(ciImage: image)
+            onMainThreadAsync {
+                if let image = self.image {
+                    self.imageView?.image = UIImage(ciImage: image)
                 } else {
-                    imageView?.image = nil
+                    self.imageView?.image = nil
                 }
-                setNeedsLayout()
+                self.setNeedsLayout()
             }
         }
     }
@@ -35,6 +35,12 @@ public final class CPUCIImageView: UIView, CIImageShowable {
         addSubview(imageView)
         ciContext = nil
         self.imageView = imageView
+    }
+
+    public override var isOpaque: Bool {
+        didSet {
+            imageView?.isOpaque = isOpaque
+        }
     }
 
     public override var contentMode: UIView.ContentMode {
