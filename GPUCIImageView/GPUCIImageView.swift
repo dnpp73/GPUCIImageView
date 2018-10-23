@@ -62,18 +62,32 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     private func commonInit() {
         #if !(arch(i386) || arch(x86_64))
-        if isMetalAvailable {
-            guard #available(iOS 9.0, *) else {
-                return
+        if #available(iOS 11.0, *) {
+            if isMetalAvailable {
+                /*
+                guard #available(iOS 9.0, *) else {
+                    // コンパイルを通すためだけのやつ
+                    return
+                }
+                 */
+                guard let m = prepareMetal() else {
+                    return
+                }
+                addSubview(m.mtkView)
+                ciContext = m.ciContext
+                gpuView = m.mtkView
+                gpuViewDelegate = m.mtkViewDelegate
+            } else {
+                guard let g = prepareOpenGL() else {
+                    return
+                }
+                addSubview(g.glkView)
+                ciContext = g.ciContext
+                gpuView = g.glkView
+                gpuViewDelegate = g.glkViewDelegate
             }
-            guard let m = prepareMetal() else {
-                return
-            }
-            addSubview(m.mtkView)
-            ciContext = m.ciContext
-            gpuView = m.mtkView
-            gpuViewDelegate = m.mtkViewDelegate
         } else {
+            // iOS 9, 10 では MTKView の使い勝手が悪いので GLKView に強制する。
             guard let g = prepareOpenGL() else {
                 return
             }
