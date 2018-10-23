@@ -8,8 +8,17 @@ internal extension CIImageShowable where Self: UIView {
         guard let imageSize = image?.extent.size else {
             return bounds.size
         }
+        if imageSize.width.isZero || imageSize.height.isZero {
+            return bounds.size
+        }
+        if imageSize.width.isNaN || imageSize.height.isNaN {
+            return bounds.size
+        }
         let originalSize = bounds.size
         let ratio = imageSize.height / imageSize.width
+        if ratio.isNaN || ratio.isZero {
+            return bounds.size
+        }
         let aspectSize1 = CGSize(width: originalSize.width, height: originalSize.width * ratio)
         let aspectSize2 = CGSize(width: originalSize.height / ratio, height: originalSize.height)
         let minSize: CGSize
