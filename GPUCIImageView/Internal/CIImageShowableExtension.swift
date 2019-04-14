@@ -4,7 +4,7 @@ import MetalKit
 
 internal extension CIImageShowable where Self: UIView {
 
-    internal var imageViewSize: CGSize {
+    var imageViewSize: CGSize {
         guard let imageSize = image?.extent.size else {
             return bounds.size
         }
@@ -42,7 +42,7 @@ internal extension CIImageShowable where Self: UIView {
         }
     }
 
-    internal func prepareOpenGL() -> (ciContext: CIContext, glkView: GLKView, glkViewDelegate: GLCIImageViewDelegate)? {
+    func prepareOpenGL() -> (ciContext: CIContext, glkView: GLKView, glkViewDelegate: GLCIImageViewDelegate)? {
         let glContext: EAGLContext
         if let glContext3 = EAGLContext(api: .openGLES3) {
             glContext = glContext3
@@ -66,7 +66,7 @@ internal extension CIImageShowable where Self: UIView {
     }
 
     @available(iOS 9, *)
-    internal func prepareMetal() -> (ciContext: CIContext, mtkView: MTKView, mtkViewDelegate: MTCIImageViewDelegate)? {
+    func prepareMetal() -> (ciContext: CIContext, mtkView: MTKView, mtkViewDelegate: MTCIImageViewDelegate)? {
         guard let device = MTLCreateSystemDefaultDevice() else {
             print("[CIImageShowable.prepareMetal()] MTLCreateSystemDefaultDevice failed")
             return nil
@@ -86,7 +86,7 @@ internal extension CIImageShowable where Self: UIView {
         return (ciContext: ciContext, mtkView: mtkView, mtkViewDelegate: mtkViewDelegate)
     }
 
-    internal func prepareCPU() -> UIImageView {
+    func prepareCPU() -> UIImageView {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
