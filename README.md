@@ -51,7 +51,7 @@ carthage bootstrap --no-use-binaries --platform iOS
 
 ## How to Use
 
-See [`CIImageShowable`](/GPUCIImageView/CIImageShowable.swift) protocol
+See [`CIImageShowable`](/Sources/CIImageShowable.swift) protocol
 
 You can use `GLCIImageView`(based on `GLKView`) or `MTCIImageView`(based on `MTKView`).
 
