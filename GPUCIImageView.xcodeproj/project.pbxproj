@@ -36,6 +36,7 @@
 		194C9EC71EA7C24C007603B8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		194C9EC81EA7C258007603B8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		194C9EC91EA7C258007603B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		19E52A1D2554480700290ADF /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EA036C762175FBAE00BDE4B2 /* MainThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThread.swift; sourceTree = "<group>"; };
 		EA1AAD772175C10D00757814 /* CPUCIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +55,7 @@
 		194C9E991EA7B4C4007603B8 = {
 			isa = PBXGroup;
 			children = (
+				19E52A1D2554480700290ADF /* Package.swift */,
 				194C9EBF1EA7B6C5007603B8 /* dotfiles */,
 				194C9EC01EA7B6D1007603B8 /* Documentation */,
 				19E52A1B255446D200290ADF /* Sources */,
