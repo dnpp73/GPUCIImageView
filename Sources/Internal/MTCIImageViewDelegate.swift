@@ -1,7 +1,6 @@
 import Foundation
 import MetalKit
 
-@available(iOS 9, *)
 internal final class MTCIImageViewDelegate: NSObject, MTKViewDelegate {
 
     internal weak var parent: CIImageShowable?

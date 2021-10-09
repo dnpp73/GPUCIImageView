@@ -9,11 +9,8 @@
 /* Begin PBXBuildFile section */
 		194C9EA81EA7B4C5007603B8 /* GPUCIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C9EA61EA7B4C5007603B8 /* GPUCIImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		194C9EB71EA7B5BA007603B8 /* CIImageShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EAE1EA7B5BA007603B8 /* CIImageShowable.swift */; };
-		194C9EB81EA7B5BA007603B8 /* GLCIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EAF1EA7B5BA007603B8 /* GLCIImageView.swift */; };
 		194C9EB91EA7B5BA007603B8 /* GPUCIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB01EA7B5BA007603B8 /* GPUCIImageView.swift */; };
 		194C9EBA1EA7B5BA007603B8 /* CIImageShowableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB21EA7B5BA007603B8 /* CIImageShowableExtension.swift */; };
-		194C9EBB1EA7B5BA007603B8 /* GLCIImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB31EA7B5BA007603B8 /* GLCIImageViewDelegate.swift */; };
-		194C9EBC1EA7B5BA007603B8 /* MetalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB41EA7B5BA007603B8 /* MetalUtil.swift */; };
 		194C9EBD1EA7B5BA007603B8 /* MTCIImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB51EA7B5BA007603B8 /* MTCIImageViewDelegate.swift */; };
 		194C9EBE1EA7B5BA007603B8 /* MTCIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C9EB61EA7B5BA007603B8 /* MTCIImageView.swift */; };
 		EA036C772175FBAE00BDE4B2 /* MainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA036C762175FBAE00BDE4B2 /* MainThread.swift */; };
@@ -25,11 +22,8 @@
 		194C9EA61EA7B4C5007603B8 /* GPUCIImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCIImageView.h; sourceTree = "<group>"; };
 		194C9EA71EA7B4C5007603B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		194C9EAE1EA7B5BA007603B8 /* CIImageShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageShowable.swift; sourceTree = "<group>"; };
-		194C9EAF1EA7B5BA007603B8 /* GLCIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLCIImageView.swift; sourceTree = "<group>"; };
 		194C9EB01EA7B5BA007603B8 /* GPUCIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUCIImageView.swift; sourceTree = "<group>"; };
 		194C9EB21EA7B5BA007603B8 /* CIImageShowableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageShowableExtension.swift; sourceTree = "<group>"; };
-		194C9EB31EA7B5BA007603B8 /* GLCIImageViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLCIImageViewDelegate.swift; sourceTree = "<group>"; };
-		194C9EB41EA7B5BA007603B8 /* MetalUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalUtil.swift; sourceTree = "<group>"; };
 		194C9EB51EA7B5BA007603B8 /* MTCIImageViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCIImageViewDelegate.swift; sourceTree = "<group>"; };
 		194C9EB61EA7B5BA007603B8 /* MTCIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCIImageView.swift; sourceTree = "<group>"; };
 		194C9EC61EA7C24C007603B8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -84,10 +78,8 @@
 		194C9EB11EA7B5BA007603B8 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				194C9EB41EA7B5BA007603B8 /* MetalUtil.swift */,
 				EA036C762175FBAE00BDE4B2 /* MainThread.swift */,
 				194C9EB21EA7B5BA007603B8 /* CIImageShowableExtension.swift */,
-				194C9EB31EA7B5BA007603B8 /* GLCIImageViewDelegate.swift */,
 				194C9EB51EA7B5BA007603B8 /* MTCIImageViewDelegate.swift */,
 			);
 			path = Internal;
@@ -117,7 +109,6 @@
 				194C9EB11EA7B5BA007603B8 /* Internal */,
 				194C9EAE1EA7B5BA007603B8 /* CIImageShowable.swift */,
 				EA1AAD772175C10D00757814 /* CPUCIImageView.swift */,
-				194C9EAF1EA7B5BA007603B8 /* GLCIImageView.swift */,
 				194C9EB61EA7B5BA007603B8 /* MTCIImageView.swift */,
 				194C9EB01EA7B5BA007603B8 /* GPUCIImageView.swift */,
 			);
@@ -215,7 +206,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelif [ -x /opt/homebrew/bin/swiftlint ]; then\n    /opt/homebrew/bin/swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -227,13 +218,10 @@
 				194C9EB71EA7B5BA007603B8 /* CIImageShowable.swift in Sources */,
 				EA1AAD782175C10D00757814 /* CPUCIImageView.swift in Sources */,
 				194C9EBE1EA7B5BA007603B8 /* MTCIImageView.swift in Sources */,
-				194C9EB81EA7B5BA007603B8 /* GLCIImageView.swift in Sources */,
 				194C9EBD1EA7B5BA007603B8 /* MTCIImageViewDelegate.swift in Sources */,
 				194C9EBA1EA7B5BA007603B8 /* CIImageShowableExtension.swift in Sources */,
-				194C9EBC1EA7B5BA007603B8 /* MetalUtil.swift in Sources */,
 				EA036C772175FBAE00BDE4B2 /* MainThread.swift in Sources */,
 				194C9EB91EA7B5BA007603B8 /* GPUCIImageView.swift in Sources */,
-				194C9EBB1EA7B5BA007603B8 /* GLCIImageViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

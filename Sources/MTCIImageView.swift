@@ -2,7 +2,6 @@ import UIKit
 import CoreImage
 import MetalKit
 
-@available(iOS 9, *)
 public final class MTCIImageView: UIView, CIImageShowable {
 
     public var image: CIImage? {

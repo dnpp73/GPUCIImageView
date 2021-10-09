@@ -42,30 +42,6 @@ internal extension CIImageShowable where Self: UIView {
         }
     }
 
-    func prepareOpenGL() -> (ciContext: CIContext, glkView: GLKView, glkViewDelegate: GLCIImageViewDelegate)? {
-        let glContext: EAGLContext
-        if let glContext3 = EAGLContext(api: .openGLES3) {
-            glContext = glContext3
-        } else if let glContext2 = EAGLContext(api: .openGLES2) {
-            glContext = glContext2
-        } else {
-            print("[CIImageShowable.prepareOpenGL()] Can't create EAGLContext")
-            return nil
-        }
-        glContext.isMultiThreaded = true
-
-        let ciContext = CIContext(eaglContext: glContext, options: [.useSoftwareRenderer: false])
-        let glkView = GLKView(frame: bounds, context: glContext)
-        let glkViewDelegate = GLCIImageViewDelegate()
-        glkViewDelegate.parent = self
-        glkView.delegate = glkViewDelegate
-        glkView.clipsToBounds = true
-        glkView.isUserInteractionEnabled = false
-        glkView.isOpaque = isOpaque
-        return (ciContext: ciContext, glkView: glkView, glkViewDelegate: glkViewDelegate)
-    }
-
-    @available(iOS 9, *)
     func prepareMetal() -> (ciContext: CIContext, mtkView: MTKView, mtkViewDelegate: MTCIImageViewDelegate)? {
         guard let device = MTLCreateSystemDefaultDevice() else {
             print("[CIImageShowable.prepareMetal()] MTLCreateSystemDefaultDevice failed")
