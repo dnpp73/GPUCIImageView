@@ -49,7 +49,7 @@ public final class GPUCIImageView: UIView, CIImageShowable {
     private var gpuView: UIView?
     private var gpuViewDelegate: NSObject? // swiftlint:disable:this weak_delegate
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -76,26 +76,26 @@ public final class GPUCIImageView: UIView, CIImageShowable {
         #endif
     }
 
-    public override var isOpaque: Bool {
+    override public var isOpaque: Bool {
         didSet {
             gpuView?.isOpaque = isOpaque
         }
     }
 
-    public override var contentMode: UIView.ContentMode {
+    override public var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }
     }
 
-    public override func didMoveToWindow() {
+    override public func didMoveToWindow() {
         super.didMoveToWindow()
         if let _ = window {
             setNeedsLayout()
         }
     }
 
-    public override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = gpuView {
             imageView.bounds = CGRect(origin: .zero, size: imageViewSize)

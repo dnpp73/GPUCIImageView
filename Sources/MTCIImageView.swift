@@ -17,7 +17,7 @@ public final class MTCIImageView: UIView, CIImageShowable {
     private var mtkView: MTKView?
     private var mtkViewDelegate: MTCIImageViewDelegate? // swiftlint:disable:this weak_delegate
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -37,26 +37,26 @@ public final class MTCIImageView: UIView, CIImageShowable {
         mtkViewDelegate = m.mtkViewDelegate
     }
 
-    public override var isOpaque: Bool {
+    override public var isOpaque: Bool {
         didSet {
             mtkView?.isOpaque = isOpaque
         }
     }
 
-    public override var contentMode: UIView.ContentMode {
+    override public var contentMode: UIView.ContentMode {
         didSet {
             setNeedsLayout()
         }
     }
 
-    public override func didMoveToWindow() {
+    override public func didMoveToWindow() {
         super.didMoveToWindow()
         if let _ = window {
             setNeedsLayout()
         }
     }
 
-    public override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         if let mtkView = mtkView {
             mtkView.bounds = CGRect(origin: .zero, size: imageViewSize)
