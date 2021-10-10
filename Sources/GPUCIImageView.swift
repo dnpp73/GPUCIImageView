@@ -1,7 +1,8 @@
+#if canImport(UIKit)
+
 import UIKit
 import CoreImage
 import MetalKit
-import GLKit
 
 // Metal 自体は iOS 8 からだが iOS 8 では MetalKit が使えないし、
 // iPhone 4s と iPhone 5 と iPad 4th と iPad mini 1st ではそもそも Metal を使えない。
@@ -105,3 +106,5 @@ public final class GPUCIImageView: UIView, CIImageShowable {
     }
 
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+
 import UIKit
 import CoreImage
 import MetalKit
@@ -66,3 +68,5 @@ public final class MTCIImageView: UIView, CIImageShowable {
     }
 
 }
+
+#endif

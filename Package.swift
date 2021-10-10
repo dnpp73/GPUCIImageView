@@ -6,6 +6,7 @@ let package = Package(
     name: "GPUCIImageView",
     platforms: [
         .iOS(.v12),
+        .macOS(.v10_11),
     ],
     products: [
         .library(name: "GPUCIImageView", targets: ["GPUCIImageView"]),

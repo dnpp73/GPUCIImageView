@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+
 import UIKit
 import CoreImage
 
@@ -72,3 +74,5 @@ public final class CPUCIImageView: UIView, CIImageShowable {
     }
 
 }
+
+#endif

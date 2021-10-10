@@ -1,5 +1,6 @@
+#if canImport(UIKit)
+
 import UIKit
-import GLKit
 import MetalKit
 
 internal extension CIImageShowable where Self: UIView {
@@ -72,3 +73,5 @@ internal extension CIImageShowable where Self: UIView {
     }
 
 }
+
+#endif

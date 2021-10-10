@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import CoreImage
 
 public protocol CIImageShowable: AnyObject {
