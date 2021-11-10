@@ -26,6 +26,8 @@ public final class CPUCIImageView: UIView, CIImageShowable {
 
     public private(set) var ciContext: CIContext?
 
+    public var waitUntilCompleted = true
+
     private var imageView: UIImageView?
 
     override init(frame: CGRect) {

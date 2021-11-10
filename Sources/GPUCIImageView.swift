@@ -47,6 +47,8 @@ public final class GPUCIImageView: UIView, CIImageShowable {
 
     public private(set) var ciContext: CIContext?
 
+    public var waitUntilCompleted = true
+
     private var gpuView: UIView?
     private var gpuViewDelegate: NSObject? // swiftlint:disable:this weak_delegate
 
@@ -61,20 +63,17 @@ public final class GPUCIImageView: UIView, CIImageShowable {
     }
 
     private func commonInit() {
-        #if !(arch(i386) || arch(x86_64))
         guard let m = prepareMetal() else {
+            let imageView = prepareCPU()
+            addSubview(imageView)
+            ciContext = nil
+            gpuView = imageView
             return
         }
         addSubview(m.mtkView)
         ciContext = m.ciContext
         gpuView = m.mtkView
         gpuViewDelegate = m.mtkViewDelegate
-        #else
-        let imageView = prepareCPU()
-        addSubview(imageView)
-        ciContext = nil
-        gpuView = imageView
-        #endif
     }
 
     override public var isOpaque: Bool {

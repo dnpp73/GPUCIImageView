@@ -16,6 +16,8 @@ public final class MTCIImageView: UIView, CIImageShowable {
 
     public private(set) var ciContext: CIContext?
 
+    public var waitUntilCompleted = true
+
     private var mtkView: MTKView?
     private var mtkViewDelegate: MTCIImageViewDelegate? // swiftlint:disable:this weak_delegate
 
